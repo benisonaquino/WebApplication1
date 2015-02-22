@@ -1,0 +1,33 @@
+﻿
+<!DOCTYPE html>
+<html ng-app="gemStore">
+<head> 
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script src="products.js"></script>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="app.js"></script>
+    <link href="Content/application.css" rel="stylesheet" />
+    <title></title>
+</head>
+
+    <body ng-controller="StoreController as store">
+        <header>
+            <h1 class="text-center">Flatlanders Crafted Gems</h1>
+            <h2 class="text-center">- An Angular store</h2>
+        </header>
+
+        <div class="list-group">
+            <div class="list-group-item" ng-repeat="product in store.products | orderBy:'price'">
+                <h3>
+                    {{product.name | uppercase}}
+                    <em class="pull-right">{{product.price | currency}}</em>
+                </h3>
+
+                <product-gallery></product-gallery>
+
+                <product-tabs></product-tabs>
+            </div>
+        </div>
+    </body>
+</html>
